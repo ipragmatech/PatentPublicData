@@ -29,19 +29,21 @@ public class DumpFileXml extends DumpFile {
     @Override
     public void open() throws IOException {
         super.open();
-        String xmlTag = super.getPatentDocFormat().getParentElement();
-        this.xmlStartTag = "<" + xmlTag;
-        this.xmlEndTag = "</" + xmlTag;
     }
 
     @Override
     public String read() {
+        String xmlTag = super.getPatentDocFormat().getParentElement();
+        this.xmlStartTag = "<" + xmlTag;
+        this.xmlEndTag = "</" + xmlTag;
         StringBuilder content = new StringBuilder();
         content.append(header);
 
         try {
             String line;
             while (super.getReader().ready() && (line = super.getReader().readLine()) != null) {
+            	// System.out.println("LINE: " + line);
+            	// System.in.read();
 
                 if (isStartTag(line)) {
                     content = new StringBuilder();
@@ -97,7 +99,10 @@ public class DumpFileXml extends DumpFile {
     }
 
     private boolean isStartTag(String line) {
-        return line.trim().startsWith(xmlStartTag);
+    	// if (this.xmlStartTag != null)
+    		return line.trim().startsWith(xmlStartTag);
+    	// else 
+    	//	return true;
     }
 
     private boolean isEndTag(String line) {

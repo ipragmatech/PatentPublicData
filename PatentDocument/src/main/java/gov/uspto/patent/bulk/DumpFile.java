@@ -35,7 +35,7 @@ public abstract class DumpFile implements Iterator<String>, Closeable, DumpReade
 
 	public DumpFile(File file) {
 		Preconditions.checkNotNull(file, "File can not be Null");
-		Preconditions.checkArgument(file.isFile(), "File not found:" + file.getAbsolutePath());
+		// Preconditions.checkArgument(file.isFile(), "File not found:" + file.getAbsolutePath());
 
 		this.file = file;
 	}
