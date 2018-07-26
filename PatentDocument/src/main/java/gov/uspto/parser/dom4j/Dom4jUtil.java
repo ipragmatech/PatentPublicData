@@ -12,7 +12,8 @@ public class Dom4jUtil {
 
 	public static String getTextOrNull(Node document, String xPath) {
 		Node node = document.selectSingleNode(xPath);
-		return node != null ? node.getText() : null;
+		// return node != null ? node.getText() : null;
+		return node != null ? node.getStringValue() : null;
 	}
 
 	/**

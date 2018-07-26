@@ -76,7 +76,8 @@ public class Sgml extends Dom4JParser {
 		Node titleN = document.selectSingleNode("/PATDOC/SDOBI/B500/B540/STEXT/PDAT");
 		String title = null;
 		if (titleN != null) {
-			title = titleN.getText();
+			// title = titleN.getText();
+			title = titleN.getStringValue();
 		}
 
 		Set<PatentClassification> classifications = new ClassificationNode(document).read();
